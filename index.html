@@ -3,104 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saifi — Saif Ullah | A Living Portfolio</title>
-<meta name="description" content="The living portfolio of Saif Ullah (Saifi) — his AI character, animated by Google Flow. AI creator, store builder, future CSS officer.">
+<title>Saifi — Saif Ullah | 3D Living Portfolio</title>
+<meta name="description" content="The 3D living portfolio of Saif Ullah (Saifi) — scroll and his AI character turns with you. AI filmmaker, creator, store builder, future CSS officer.">
 <link rel="icon" href="avatar.webp">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { background:#0b100f; color:#f5efe2; font-family:'Inter',Arial,sans-serif; overflow-x:hidden; }
-  .serif { font-family:'Playfair Display',Georgia,serif; }
-  #progress { position:fixed; top:0; left:0; height:3px; width:0%; z-index:90; background:linear-gradient(90deg,#c9a45c,#f5e3bb); }
-  nav { position:fixed; top:0; left:0; right:0; z-index:80; display:flex; justify-content:space-between; align-items:center;
-    padding:18px 30px; background:linear-gradient(180deg, rgba(11,16,15,.9), transparent); }
-  .brand { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:25px; letter-spacing:1px; }
-  .brand i { color:#c9a45c; }
-  nav .links a { color:#e9e2cf; text-decoration:none; margin-left:24px; font-size:12px; letter-spacing:2.5px; font-weight:600; }
-  nav .links a:hover { color:#c9a45c; }
-  @media (max-width:680px){ nav .links{ display:none; } }
-
-  /* HERO */
-  .hero { position:relative; min-height:100vh; display:grid; grid-template-columns:1.05fr .95fr; gap:4vw; align-items:center;
-    padding:120px 6vw 80px; overflow:hidden;
-    background:radial-gradient(ellipse at 82% 18%, #14424e 0%, #0b100f 58%); }
-  @media (max-width:880px){ .hero{ grid-template-columns:1fr; padding-top:104px; } }
-  .eyebrow { letter-spacing:5px; font-size:12px; color:#c9a45c; font-weight:700; text-transform:uppercase; animation:fadeUp .9s ease .15s both; }
-  .hero h1 { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:clamp(56px, 9.5vw, 118px);
-    line-height:1.0; margin:18px 0 8px; animation:fadeUp .9s ease .3s both; }
-  .hero h1 i { color:#c9a45c; }
-  .hero .role { font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:clamp(20px,3vw,30px); color:#bfe6ee; animation:fadeUp .9s ease .45s both; }
-  .hero p.intro { margin-top:20px; color:#d8d0ba; line-height:1.7; font-size:clamp(15px,2vw,17.5px); max-width:520px; animation:fadeUp .9s ease .6s both; }
-  .row { margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp .9s ease .75s both; }
-  .btn { padding:15px 32px; border-radius:999px; text-decoration:none; font-size:13.5px; letter-spacing:2px; font-weight:700; text-transform:uppercase; }
-  .btn.gold { background:linear-gradient(135deg,#e6c877,#b98d54); color:#171106; box-shadow:0 14px 34px rgba(0,0,0,.5); }
-  .btn.line { border:1.5px solid rgba(245,239,226,.5); color:#f5efe2; }
-  .stats { margin-top:40px; display:flex; gap:32px; flex-wrap:wrap; animation:fadeUp .9s ease .9s both; }
-  .stat .num { font-family:'Playfair Display',Georgia,serif; font-size:32px; font-weight:800; }
-  .stat .num em { color:#c9a45c; font-style:normal; }
-  .stat .lab { color:#9a937f; font-size:11px; letter-spacing:2.5px; margin-top:3px; font-weight:600; }
-  @keyframes fadeUp { from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:translateY(0);} }
-
-  .stage { position:relative; display:flex; flex-direction:column; align-items:center; z-index:2; }
-  .arch { position:relative; width:min(380px, 82vw); border-radius:999px 999px 18px 18px; overflow:hidden;
-    box-shadow:0 44px 100px rgba(0,0,0,.75); outline:1px solid rgba(201,164,92,.45); outline-offset:10px;
-    animation:floaty 6s ease-in-out infinite; }
-  @keyframes floaty { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
-  .arch video { width:100%; display:block; }
-  .arch .live { position:absolute; top:16px; left:50%; transform:translateX(-50%); z-index:2; display:flex; align-items:center; gap:7px;
-    background:rgba(0,0,0,.55); padding:6px 13px; border-radius:20px; font-size:10.5px; letter-spacing:2.5px; color:#ffd9d0; white-space:nowrap; }
-  .arch .live i { width:8px; height:8px; border-radius:50%; background:#ff4438; animation:blink 1.1s steps(1) infinite; }
-  @keyframes blink { 50%{ opacity:.15; } }
-  .stage .cap { margin-top:24px; color:#c9a45c; letter-spacing:3px; font-size:12px; font-weight:600; text-align:center; }
-
-  /* SECTIONS */
-  section { padding:100px 6vw; }
-  .kicker { letter-spacing:5px; font-size:12px; color:#c9a45c; font-weight:700; text-transform:uppercase; margin-bottom:14px; }
-  h2.big { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:clamp(38px,6.5vw,72px); line-height:1.05; }
-  h2.big i { color:#c9a45c; }
-  .lead { margin-top:18px; color:#cfc7ae; line-height:1.75; font-size:clamp(15px,2vw,17.5px); max-width:620px; }
-  .reveal { opacity:0; transform:translateY(40px); transition:opacity .9s ease, transform .9s ease; }
-  .reveal.in { opacity:1; transform:translate(0,0); }
-
-  /* LIGHT EDITORIAL SECTION */
-  .light { background:#f5efe2; color:#17201d; }
-  .light h2.big { color:#17201d; } .light h2.big i { color:#a07d2c; }
-  .light .lead { color:#4a4636; } .light .kicker { color:#a07d2c; }
-  .split { display:grid; grid-template-columns:1fr 1fr; gap:5vw; align-items:start; }
-  @media (max-width:840px){ .split{ grid-template-columns:1fr; } }
-  .factlist { margin-top:8px; }
-  .factlist div { display:flex; justify-content:space-between; gap:18px; padding:16px 2px; border-bottom:1px solid rgba(23,32,29,.16); font-size:15.5px; }
-  .factlist span:first-child { color:#8a7a4d; letter-spacing:2px; font-size:12px; font-weight:700; padding-top:2px; }
-  .factlist span:last-child { font-weight:600; text-align:right; }
-
-  /* WORK LIST */
-  .work-row { display:flex; align-items:baseline; gap:22px; padding:28px 4px; border-bottom:1px solid rgba(245,239,226,.13);
-    text-decoration:none; transition:padding .3s ease, background .3s ease; }
-  .work-row:hover { padding-left:18px; background:linear-gradient(90deg, rgba(201,164,92,.08), transparent 65%); }
-  .work-row .no { font-family:'Playfair Display',Georgia,serif; font-style:italic; color:#c9a45c; font-size:19px; min-width:42px; }
-  .work-row .nm { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:clamp(26px,4.5vw,44px); color:#f5efe2; }
-  .work-row .ds { color:#a89f88; font-size:14px; max-width:330px; line-height:1.55; margin-left:auto; text-align:right; }
-  .work-row .ar { color:#c9a45c; font-size:24px; }
-  @media (max-width:760px){ .work-row{ flex-wrap:wrap; } .work-row .ds{ margin-left:64px; text-align:left; } }
-
-  /* FINALE */
-  .finale { text-align:center; background:radial-gradient(ellipse at 50% -10%, #173f49 0%, #0b100f 60%); }
-  .finale .lead { margin-left:auto; margin-right:auto; }
-  .credit-lines { margin-top:48px; color:#9a937f; line-height:2.25; letter-spacing:3px; font-size:12.5px; text-transform:uppercase; font-weight:600; }
-  .credit-lines b { color:#f0e7cf; }
-  footer { text-align:center; padding:24px 20px 44px; color:#6f6a5c; font-size:12px; letter-spacing:2px; }
-  #intro { position:fixed; inset:0; z-index:200; background:#04211c; transition:opacity .9s ease, visibility .9s; }
-  #intro.gone { opacity:0; visibility:hidden; }
-  #intro video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .intro-shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(4,33,28,.25), rgba(4,33,28,0) 40%, rgba(4,33,28,.6)); }
-  .intro-ui { position:absolute; left:0; right:0; bottom:9%; text-align:center; color:#fff; pointer-events:none; }
-  .intro-name { font-family:'Playfair Display', serif; font-weight:700; font-size:clamp(3rem,13vw,6.2rem); letter-spacing:.32em; text-indent:.32em; line-height:1; animation:introUp 1.2s .7s both; }
-  .intro-sub { margin-top:.7rem; letter-spacing:.42em; text-indent:.42em; font-size:.68rem; color:#c9a45c; animation:introUp 1.2s 1.25s both; }
-  @keyframes introUp { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
-  #introSkip { position:absolute; top:16px; right:16px; z-index:3; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4); color:#fff; padding:.5rem 1.1rem; border-radius:99px; cursor:pointer; font-family:inherit; letter-spacing:.14em; font-size:.72rem; }
-  .intro-bar { position:absolute; left:0; bottom:0; height:3px; background:#c9a45c; width:0; animation:introBar 10.2s linear forwards; }
-  @keyframes introBar { to { width:100%; } }
+  :root{ --bg:#05231e; --bg2:#0a3530; --ink:#f4efe4; --mut:#b9c4bb; --gold:#c9a45c; --gold2:#f5e3bb; --card:rgba(6,32,28,.72); --line:rgba(201,164,92,.28); }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:radial-gradient(1200px 800px at 50% -10%, #0e4a41 0%, var(--bg) 55%, #03150f 100%);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden}
+  #gl{position:fixed;inset:0;z-index:0}
+  #fallback{position:fixed;inset:0;z-index:0;display:none;align-items:center;justify-content:center}
+  #fallback img{height:78vh;border-radius:18px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:90;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+  /* ---------- INTRO ---------- */
+  #intro{position:fixed;inset:0;z-index:200;background:#04211c;transition:opacity .9s ease,visibility .9s}
+  #intro.gone{opacity:0;visibility:hidden}
+  #intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .intro-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,33,28,.25),rgba(4,33,28,0) 40%,rgba(4,33,28,.6))}
+  .intro-ui{position:absolute;left:0;right:0;bottom:9%;text-align:center;color:#fff;pointer-events:none}
+  .intro-name{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(3rem,13vw,6.2rem);letter-spacing:.3em;text-indent:.3em;line-height:1;animation:introUp 1.2s .7s both}
+  .intro-sub{margin-top:.7rem;letter-spacing:.42em;text-indent:.42em;font-size:.68rem;color:var(--gold);animation:introUp 1.2s 1.25s both}
+  @keyframes introUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  #introSkip{position:absolute;top:16px;right:16px;z-index:3;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;padding:.5rem 1.1rem;border-radius:99px;cursor:pointer;font-family:inherit;letter-spacing:.14em;font-size:.72rem}
+  .intro-bar{position:absolute;left:0;bottom:0;height:3px;background:var(--gold);width:0;animation:introBar 10.2s linear forwards}
+  @keyframes introBar{to{width:100%}}
+  /* ---------- LAYOUT ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;align-items:center;padding:16px 22px;mix-blend-mode:difference}
+  .brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.35rem;letter-spacing:.06em;color:#fff}
+  .brand i{color:var(--gold);font-style:normal}
+  nav .links a{color:#fff;text-decoration:none;font-size:.72rem;letter-spacing:.28em;margin-left:20px;font-weight:600}
+  main{position:relative;z-index:2}
+  section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 6vw;position:relative}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,44px);backdrop-filter:blur(10px);box-shadow:0 30px 70px rgba(0,0,0,.35);max-width:640px}
+  .panel.right{margin-left:auto}
+  .panel.center{margin:0 auto;text-align:center;max-width:760px}
+  .kick{color:var(--gold);letter-spacing:.4em;font-size:.68rem;font-weight:600;margin-bottom:14px}
+  h1{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(3.4rem,14vw,8.5rem);line-height:.95;letter-spacing:.01em;text-transform:uppercase}
+  h1 .thin{display:block;font-size:clamp(1rem,3.4vw,1.6rem);letter-spacing:.55em;color:var(--gold2);font-weight:700;margin-top:14px}
+  h2{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(2rem,6.5vw,3.4rem);line-height:1.05;text-transform:uppercase;margin-bottom:16px}
+  h2 em{font-style:normal;color:var(--gold)}
+  p.lead{color:var(--mut);font-size:clamp(1rem,2.6vw,1.15rem);line-height:1.75}
+  .hero-wrap{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:12vh}
+  .scroll-hint{margin-top:26px;color:var(--gold2);letter-spacing:.35em;font-size:.68rem;font-weight:600;animation:hint 2s ease-in-out infinite}
+  @keyframes hint{0%,100%{transform:translateY(0);opacity:.75}50%{transform:translateY(8px);opacity:1}}
+  .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+  .stat{flex:1;min-width:120px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:16px 14px;text-align:center}
+  .stat .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.9rem;color:#fff}
+  .stat .num em{font-style:normal;color:var(--gold)}
+  .stat .lab{margin-top:4px;font-size:.62rem;letter-spacing:.24em;color:var(--mut);font-weight:600}
+  ul.facts{list-style:none;margin-top:8px}
+  ul.facts li{padding:11px 2px;border-bottom:1px dashed rgba(201,164,92,.25);color:var(--mut);line-height:1.6;font-size:.98rem}
+  ul.facts li b{color:var(--ink);font-weight:600}
+  ul.facts li:last-child{border-bottom:none}
+  .work-list{margin-top:6px}
+  .work-row{display:flex;align-items:baseline;gap:16px;padding:16px 6px;border-bottom:1px solid rgba(201,164,92,.22);text-decoration:none;color:var(--ink);transition:background .3s,padding-left .3s}
+  a.work-row:hover{background:rgba(201,164,92,.08);padding-left:14px}
+  .work-row .no{color:var(--gold);font-size:.72rem;letter-spacing:.2em;font-weight:600;white-space:nowrap}
+  .work-row .nm{font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(1.15rem,3.4vw,1.6rem);white-space:nowrap}
+  .work-row .ds{color:var(--mut);font-size:.85rem;line-height:1.5;flex:1}
+  .work-row .ar{color:var(--gold);font-weight:700}
+  @media(max-width:640px){ .work-row{flex-wrap:wrap} .work-row .ds{flex-basis:100%} }
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .chip{border:1px solid var(--line);border-radius:99px;padding:.5rem 1rem;font-size:.78rem;color:var(--gold2);background:rgba(255,255,255,.04)}
+  .cta{display:inline-block;margin-top:24px;background:var(--gold);color:#231a05;font-weight:700;text-decoration:none;padding:.9rem 1.9rem;border-radius:99px;letter-spacing:.06em}
+  .cta.ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold);margin-left:10px}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  footer{position:relative;z-index:2;text-align:center;padding:26px 20px 46px;color:#7d8a80;font-size:12px;letter-spacing:2px}
+  .phase-dots{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;gap:10px}
+  .phase-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .4s}
+  .phase-dots span.on{background:var(--gold);transform:scale(1.5)}
+  @media(max-width:640px){ .phase-dots{display:none} nav .links{display:none} }
 </style>
 </head>
 <body>
@@ -112,114 +87,93 @@
   <div class="intro-bar"></div>
 </div>
 <div id="progress"></div>
+<div id="gl"></div>
+<div id="fallback"><img src="avatar.webp" alt="Saifi AI character"></div>
+<div class="phase-dots" id="dots"><span></span><span></span><span></span><span></span><span></span></div>
 
 <nav>
   <div class="brand">Saifi<i>.</i></div>
-  <div class="links">
-    <a href="#story">STORY</a><a href="#work">WORK</a><a href="#dream">DREAM</a><a href="#contact">CONTACT</a>
-  </div>
+  <div class="links"><a href="#story">STORY</a><a href="#work">WORK</a><a href="#dream">DREAM</a><a href="#contact">CONTACT</a></div>
 </nav>
 
-<header class="hero">
-  <div>
-    <p class="eyebrow">✦ The Living Portfolio ✦</p>
-    <h1>Saif Ullah<br><i>“Saifi”</i></h1>
-    <p class="role">— and this is him, alive in AI.</p>
-    <p class="intro">The character beside you is not a photograph. He is Saifi's AI avatar, animated with
-      Google Flow — smiling, folding his arms, pointing right at you. Everything on this page was built
-      by the real Saifi: the films, the stores, the apps, and this site itself.</p>
-    <div class="row">
-      <a class="btn gold" href="#work">See The Work ↓</a>
-      <a class="btn line" href="#contact">Contact</a>
+<main>
+  <section id="hero">
+    <div class="hero-wrap">
+      <div class="panel reveal in" style="max-width:820px">
+        <div class="kick">SCROLL — THE CHARACTER TURNS WITH YOU</div>
+        <h1>Saif<span style="color:var(--gold)">i</span><span class="thin">AI FILMMAKER · CREATOR · BUILDER</span></h1>
+        <p class="lead" style="margin-top:16px">I am Saif Ullah — 18, from Pakistan. I make AI films, run pages millions watch, and build stores and apps. The character you see turning beside you is my own AI avatar, brought to life with Google Flow.</p>
+        <div class="stats">
+          <div class="stat"><div class="num"><span data-count="17">0</span><em>K</em></div><div class="lab">PAGE FOLLOWERS</div></div>
+          <div class="stat"><div class="num"><span data-count="1.2">0</span><em>M</em></div><div class="lab">TOP VIDEO VIEWS</div></div>
+          <div class="stat"><div class="num"><span data-count="3">0</span></div><div class="lab">LIVE PRODUCTS</div></div>
+          <div class="stat"><div class="num"><span data-count="5">0</span><em>+</em></div><div class="lab">AI FILM PROJECTS</div></div>
+        </div>
+        <div class="scroll-hint">▼ SCROLL TO EXPLORE ▼</div>
+      </div>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="num"><span data-count="17">0</span><em>K</em></div><div class="lab">PAGE FOLLOWERS</div></div>
-      <div class="stat"><div class="num"><span data-count="1.2">0</span><em>M</em></div><div class="lab">TOP VIDEO VIEWS</div></div>
-      <div class="stat"><div class="num"><span data-count="3">0</span></div><div class="lab">LIVE PRODUCTS</div></div>
-      <div class="stat"><div class="num"><span data-count="5">0</span><em>+</em></div><div class="lab">AI FILM PROJECTS</div></div>
-    </div>
-  </div>
-  <div class="stage">
-    <div class="arch">
-      <div class="live"><i></i> LIVE · AI CHARACTER</div>
-      <video autoplay muted loop playsinline poster="pose-folded.webp">
-        <source src="flow-portrait.mp4" type="video/mp4">
-      </video>
-    </div>
-    <p class="cap">✦ ANIMATED WITH GOOGLE FLOW ✦</p>
-  </div>
-</header>
+  </section>
 
-<section class="light" id="story">
-  <div class="split">
-    <div class="reveal">
-      <p class="kicker">✦ His Story ✦</p>
-      <h2 class="big">A student by day.<br>An operator by evening.<br><i>A builder by night.</i></h2>
-      <p class="lead">Saifi is an ADP student in his 3rd semester at Degree College Minchinabad, and a
-        part-time operator at Chicken Express in Lahore — running customer orders and helping support
-        his family. When the day ends, the second shift begins: AI films, prompt stores, watch stores,
-        apps and channels, all designed and shipped by him.</p>
+  <section id="story">
+    <div class="panel right reveal">
+      <div class="kick">CHAPTER ONE</div>
+      <h2>His <em>Story</em></h2>
+      <ul class="facts">
+        <li><b>Name</b> — Saif Ullah, called Saifi</li>
+        <li><b>Age</b> — 18</li>
+        <li><b>From</b> — Minchinabad · Lahore, Pakistan</li>
+        <li><b>Studying</b> — ADP, 3rd semester, Degree College Minchinabad</li>
+        <li><b>Working</b> — Operator at Chicken Express, supporting his family</li>
+        <li><b>Building</b> — AI films, pages, stores and apps — every single day</li>
+      </ul>
     </div>
-    <div class="factlist reveal">
-      <div><span>NAME</span><span>Saif Ullah — “Saifi”</span></div>
-      <div><span>AGE</span><span>18</span></div>
-      <div><span>FROM</span><span>Minchinabad · Lahore, Pakistan</span></div>
-      <div><span>STUDYING</span><span>ADP — 3rd Semester</span></div>
-      <div><span>WORKING</span><span>Operator, Chicken Express</span></div>
-      <div><span>BUILDING</span><span>Films · Stores · Apps</span></div>
-      <div><span>DREAMING</span><span>CSS — Civil Service of Pakistan</span></div>
+  </section>
+
+  <section id="work">
+    <div class="panel reveal" style="max-width:860px">
+      <div class="kick">CHAPTER TWO</div>
+      <h2>The <em>Work</em></h2>
+      <div class="work-list">
+        <div class="work-row"><span class="no">No. 1</span><span class="nm">Solid Decor DIY</span><span class="ds">His Facebook decor page — 17K followers, with a top video past 1.2 million views.</span><span class="ar">✦</span></div>
+        <a class="work-row" href="https://promptforge-c0abb.web.app" target="_blank" rel="noopener"><span class="no">No. 2</span><span class="nm">PromptForge</span><span class="ds">His store of ready-made AI video prompt packs for creators.</span><span class="ar">↗</span></a>
+        <a class="work-row" href="https://watch-neon-zeta.vercel.app" target="_blank" rel="noopener"><span class="no">No. 3</span><span class="nm">WatchHub</span><span class="ds">A premium watch store with live orders on WhatsApp.</span><span class="ar">↗</span></a>
+        <a class="work-row" href="https://anna.partners/store/@saifi/storyboard-reel-studio" target="_blank" rel="noopener"><span class="no">No. 4</span><span class="nm">Storyboard Studio</span><span class="ds">His published app on Anna — turns one idea into a full reel storyboard.</span><span class="ar">↗</span></a>
+        <div class="work-row"><span class="no">No. 5</span><span class="nm">Dusk of Empires</span><span class="ds">His history channel — the final hours of Titanic, Pompeii and Hiroshima, told as films.</span><span class="ar">✦</span></div>
+        <div class="work-row"><span class="no">No. 6</span><span class="nm">Skyward Dragon</span><span class="ds">His dragon page — 8.3K followers of AI dragon flight reels.</span><span class="ar">✦</span></div>
+      </div>
+      <div class="chips"><span class="chip">AI Filmmaking</span><span class="chip">Prompt Engineering</span><span class="chip">Video Editing</span><span class="chip">Web Building</span><span class="chip">Automation</span></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="work">
-  <div class="reveal">
-    <p class="kicker">✦ Selected Work ✦</p>
-    <h2 class="big">Built, launched,<br><i>and still running.</i></h2>
-  </div>
-  <div style="margin-top:26px;">
-    <div class="work-row reveal"><span class="no">No. 1</span><span class="nm">Solid Decor DIY</span><span class="ds">His Facebook decor page — 17K followers, with a top video past 1.2 million views.</span><span class="ar">✦</span></div>
-    <a class="work-row reveal" href="https://promptforge-c0abb.web.app" target="_blank" rel="noopener"><span class="no">No. 2</span><span class="nm">PromptForge</span><span class="ds">AI prompt-pack store — master prompts for viral reels, delivered on verified payment.</span><span class="ar">→</span></a>
-    <a class="work-row reveal" href="https://watch-neon-zeta.vercel.app" target="_blank" rel="noopener"><span class="no">No. 3</span><span class="nm">WatchHub</span><span class="ds">Premium watch store — real orders, WhatsApp checkout, cash on delivery.</span><span class="ar">→</span></a>
-    <a class="work-row reveal" href="https://anna.partners/store/@saifi/storyboard-reel-studio" target="_blank" rel="noopener"><span class="no">No. 4</span><span class="nm">Storyboard Studio</span><span class="ds">His approved Anna app — one-line ideas in, production-ready video prompts out.</span><span class="ar">→</span></a>
-    <a class="work-row reveal" href="https://www.youtube.com/@DuskofEmpirestv" target="_blank" rel="noopener"><span class="no">No. 5</span><span class="nm">Dusk of Empires</span><span class="ds">YouTube history channel — the final hours of empires, in full AI films.</span><span class="ar">→</span></a>
-    <a class="work-row reveal" href="https://www.facebook.com/profile.php?id=61593981347898" target="_blank" rel="noopener"><span class="no">No. 6</span><span class="nm">Skyward Dragon</span><span class="ds">First-person dragon flight reels — 8.3K followers, top reel past 151K views.</span><span class="ar">→</span></a>
-  </div>
-</section>
-
-<section id="dream" style="padding-top:20px;">
-  <div class="reveal">
-    <p class="kicker">✦ The Dream ✦</p>
-    <h2 class="big">First the uniform.<br><i>Then the service.</i></h2>
-    <p class="lead">In November 2026, Saifi applied for Assistant Sub-Inspector (BPS-11) in the Airports
-      Security Force — and began preparing in earnest: the run, the chin-ups, the past papers. It is the
-      first step on a longer road he has already chosen — <b>CSS, the Civil Service of Pakistan</b> —
-      and every late-night build on this page is training for the discipline that road demands.</p>
-  </div>
-</section>
-
-<section class="finale" id="contact">
-  <div class="reveal">
-    <p class="kicker">✦ Contact ✦</p>
-    <h2 class="big">The next project<br><i>could be yours.</i></h2>
-    <p class="lead">A film, a store, an app — or just a salaam. His inbox is open.</p>
-    <div class="row" style="justify-content:center;">
-      <a class="btn gold" href="mailto:saif267484989@gmail.com">Email Me →</a>
-      <a class="btn line" href="https://wa.me/923370596139?text=Assalam-o-Alaikum%20Saifi,%20I%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn line" href="https://github.com/saif2674" target="_blank" rel="noopener">GitHub</a>
+  <section id="dream">
+    <div class="panel right reveal">
+      <div class="kick">CHAPTER THREE</div>
+      <h2>The <em>Dream</em></h2>
+      <p class="lead">In November 2026 Saifi applied for <b style="color:var(--ink)">ASI (BPS-11) in the Airports Security Force</b> — and he is preparing with full force: past papers, lesson by lesson, test by test. Beyond it stands the bigger dream he has already chosen: <b style="color:var(--ink)">CSS</b> — to serve Pakistan as an officer.</p>
+      <div class="chips"><span class="chip">ASF ASI — Applied 2026</span><span class="chip">CSS — The Big Dream</span><span class="chip">PMS — Backup</span></div>
     </div>
-    <div class="credit-lines">
-      STARRING <b>SAIF ULLAH “SAIFI”</b><br>
-      CHARACTER <b>AI AVATAR — ANIMATED WITH GOOGLE FLOW</b><br>
-      WRITTEN · BUILT · DIRECTED BY <b>SAIFI</b> · MMXXVI
+  </section>
+
+  <section id="contact">
+    <div class="panel center reveal">
+      <div class="kick">FINAL CHAPTER</div>
+      <h2>Work <em>With Him</em></h2>
+      <p class="lead">A brand, a page, a store, a film — if it needs an AI creator who ships every day, this is where it starts.</p>
+      <div>
+        <a class="cta" href="https://wa.me/923370596139" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="cta ghost" href="mailto:saif267484989@gmail.com">Email</a>
+        <a class="cta ghost" href="https://github.com/saif2674" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 
-<footer>© 2026 SAIF ULLAH “SAIFI” · NO REAL PHOTOS — ONLY HIS AI CHARACTER, ALIVE ON THIS PAGE</footer>
+<footer>© 2026 SAIF ULLAH “SAIFI” · NO REAL PHOTOS — ONLY HIS AI CHARACTER, ALIVE IN 3D ON THIS PAGE</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function () {
+  /* ---------- INTRO ---------- */
   var introEl = document.getElementById('intro'), introVid = document.getElementById('introVid');
   document.body.style.overflow = 'hidden';
   function endIntro() { if (!introEl || introEl.classList.contains('gone')) return; introEl.classList.add('gone'); document.body.style.overflow = ''; setTimeout(function () { introEl.remove(); }, 1000); }
@@ -227,38 +181,113 @@
   document.getElementById('introSkip').addEventListener('click', endIntro);
   introEl.addEventListener('click', function (e) { if (e.target === introVid || e.target.classList.contains('intro-shade')) endIntro(); });
   setTimeout(endIntro, 11500);
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-  var cio = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
+  /* ---------- REVEALS + COUNTERS ---------- */
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.2 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  var cio = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
       if (!e.isIntersecting) return;
-      var el = e.target, end = parseFloat(el.getAttribute('data-count'));
-      var dec = el.getAttribute('data-count').indexOf('.') > -1, start = null;
-      function step(ts) {
-        if (!start) start = ts;
-        var p = Math.min(1, (ts - start) / 1500);
-        var v = end * (1 - Math.pow(1 - p, 3));
-        el.textContent = dec ? v.toFixed(1) : Math.round(v);
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-      cio.unobserve(el);
+      var el = e.target, end = parseFloat(el.getAttribute('data-count')), dec = el.getAttribute('data-count').indexOf('.') > -1, st = null;
+      function step(ts) { if (!st) st = ts; var p = Math.min(1, (ts - st) / 1500), v = end * (1 - Math.pow(1 - p, 3)); el.textContent = dec ? v.toFixed(1) : Math.round(v); if (p < 1) requestAnimationFrame(step); }
+      requestAnimationFrame(step); cio.unobserve(el);
     });
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-count]').forEach(function (el) { cio.observe(el); });
 
-  var bar = document.getElementById('progress'), ticking = false;
-  window.addEventListener('scroll', function () {
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(function () {
-      ticking = false;
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+  /* ---------- PROGRESS + DOTS ---------- */
+  var bar = document.getElementById('progress'), dots = document.querySelectorAll('#dots span'), ticking = false;
+  var scrollP = 0;
+  function onScroll() {
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    scrollP = max > 0 ? (h.scrollTop / max) : 0;
+    bar.style.width = (scrollP * 100) + '%';
+    var idx = Math.min(dots.length - 1, Math.floor(scrollP * dots.length));
+    dots.forEach(function (d, i) { d.classList.toggle('on', i === idx); });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  /* ---------- THREE.JS 3D CHARACTER STAGE ---------- */
+  var glBox = document.getElementById('gl');
+  try {
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    glBox.appendChild(renderer.domElement);
+    var scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x05231e, 10, 26);
+    var camera = new THREE.PerspectiveCamera(46, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0.4, 10.5);
+
+    scene.add(new THREE.AmbientLight(0xbfd9d2, 0.85));
+    var key = new THREE.DirectionalLight(0xfff2d8, 0.9); key.position.set(4, 6, 8); scene.add(key);
+    var rim = new THREE.DirectionalLight(0xc9a45c, 0.7); rim.position.set(-6, 3, -4); scene.add(rim);
+
+    var stage = new THREE.Group(); scene.add(stage);
+
+    /* ground disc */
+    var disc = new THREE.Mesh(new THREE.CircleGeometry(3.4, 48), new THREE.MeshStandardMaterial({ color: 0x0a3530, roughness: 0.9, metalness: 0.1, transparent: true, opacity: 0.85 }));
+    disc.rotation.x = -Math.PI / 2; disc.position.y = -2.35; stage.add(disc);
+    var ring = new THREE.Mesh(new THREE.RingGeometry(3.4, 3.55, 64), new THREE.MeshBasicMaterial({ color: 0xc9a45c, side: THREE.DoubleSide, transparent: true, opacity: 0.8 }));
+    ring.rotation.x = -Math.PI / 2; ring.position.y = -2.34; stage.add(ring);
+
+    /* character cards on a carousel */
+    var files = ['avatar.webp', 'pose-wave.webp', 'pose-laugh.webp', 'pose-thumbs.webp', 'pose-folded.webp'];
+    var cards = [], loader = new THREE.TextureLoader();
+    files.forEach(function (f, i) {
+      var tex = loader.load(f);
+      var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide });
+      var m = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 3.35), mat);
+      var a = (i / files.length) * Math.PI * 2;
+      m.position.set(Math.sin(a) * 4.4, 0.15, Math.cos(a) * 4.4 - 1.5);
+      m.userData.a = a;
+      stage.add(m); cards.push(m);
     });
-  }, { passive: true });
+
+    /* gold particles */
+    var N = 260, pos = new Float32Array(N * 3);
+    for (var i = 0; i < N; i++) { pos[i * 3] = (Math.random() - 0.5) * 22; pos[i * 3 + 1] = (Math.random() - 0.5) * 13; pos[i * 3 + 2] = -3 - Math.random() * 9; }
+    var pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    var pts = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xc9a45c, size: 0.055, transparent: true, opacity: 0.75 }));
+    scene.add(pts);
+
+    var mx = 0, my = 0;
+    window.addEventListener('pointermove', function (e) { mx = (e.clientX / window.innerWidth - 0.5); my = (e.clientY / window.innerHeight - 0.5); }, { passive: true });
+
+    var clock = new THREE.Clock();
+    (function animate() {
+      requestAnimationFrame(animate);
+      var t = clock.getElapsedTime();
+      /* scroll drives the carousel: full turn across the page */
+      var targetRot = scrollP * Math.PI * 2.0;
+      stage.rotation.y += (targetRot - stage.rotation.y) * 0.06;
+      stage.position.y = Math.sin(t * 0.7) * 0.08;
+      cards.forEach(function (m) {
+        var wa = m.userData.a + stage.rotation.y;
+        m.rotation.y = -stage.rotation.y + Math.sin(wa) * 0.0; /* keep cards facing camera */
+        m.position.y = 0.15 + Math.sin(t * 1.1 + m.userData.a * 3) * 0.07;
+        var front = Math.cos(wa); /* 1 = front */
+        var s = 0.82 + 0.3 * Math.max(0, front);
+        m.scale.set(s, s, 1);
+      });
+      ring.rotation.z = t * 0.15;
+      pts.rotation.y = t * 0.02;
+      camera.position.x += ((mx * 1.6) - camera.position.x) * 0.04;
+      camera.position.y += ((0.4 - my * 1.0) - camera.position.y) * 0.04;
+      camera.lookAt(0, 0.1, 0);
+      renderer.render(scene, camera);
+    })();
+
+    window.addEventListener('resize', function () {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  } catch (err) {
+    document.getElementById('fallback').style.display = 'flex';
+  }
 })();
 </script>
 </body>

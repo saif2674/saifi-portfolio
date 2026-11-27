@@ -90,9 +90,27 @@
   .credit-lines { margin-top:48px; color:#9a937f; line-height:2.25; letter-spacing:3px; font-size:12.5px; text-transform:uppercase; font-weight:600; }
   .credit-lines b { color:#f0e7cf; }
   footer { text-align:center; padding:24px 20px 44px; color:#6f6a5c; font-size:12px; letter-spacing:2px; }
+  #intro { position:fixed; inset:0; z-index:200; background:#04211c; transition:opacity .9s ease, visibility .9s; }
+  #intro.gone { opacity:0; visibility:hidden; }
+  #intro video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .intro-shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(4,33,28,.25), rgba(4,33,28,0) 40%, rgba(4,33,28,.6)); }
+  .intro-ui { position:absolute; left:0; right:0; bottom:9%; text-align:center; color:#fff; pointer-events:none; }
+  .intro-name { font-family:'Playfair Display', serif; font-weight:700; font-size:clamp(3rem,13vw,6.2rem); letter-spacing:.32em; text-indent:.32em; line-height:1; animation:introUp 1.2s .7s both; }
+  .intro-sub { margin-top:.7rem; letter-spacing:.42em; text-indent:.42em; font-size:.68rem; color:#c9a45c; animation:introUp 1.2s 1.25s both; }
+  @keyframes introUp { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
+  #introSkip { position:absolute; top:16px; right:16px; z-index:3; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.4); color:#fff; padding:.5rem 1.1rem; border-radius:99px; cursor:pointer; font-family:inherit; letter-spacing:.14em; font-size:.72rem; }
+  .intro-bar { position:absolute; left:0; bottom:0; height:3px; background:#c9a45c; width:0; animation:introBar 10.2s linear forwards; }
+  @keyframes introBar { to { width:100%; } }
 </style>
 </head>
 <body>
+<div id="intro">
+  <video id="introVid" src="flow-intro.mp4" autoplay muted playsinline preload="auto"></video>
+  <div class="intro-shade"></div>
+  <div class="intro-ui"><div class="intro-name">SAIF</div><div class="intro-sub">AI FILMMAKER · CREATOR · BUILDER</div></div>
+  <button id="introSkip" type="button">SKIP ✕</button>
+  <div class="intro-bar"></div>
+</div>
 <div id="progress"></div>
 
 <nav>
@@ -202,6 +220,13 @@
 
 <script>
 (function () {
+  var introEl = document.getElementById('intro'), introVid = document.getElementById('introVid');
+  document.body.style.overflow = 'hidden';
+  function endIntro() { if (!introEl || introEl.classList.contains('gone')) return; introEl.classList.add('gone'); document.body.style.overflow = ''; setTimeout(function () { introEl.remove(); }, 1000); }
+  if (introVid) { introVid.addEventListener('ended', endIntro); var pr = introVid.play(); if (pr && pr.catch) pr.catch(function () {}); }
+  document.getElementById('introSkip').addEventListener('click', endIntro);
+  introEl.addEventListener('click', function (e) { if (e.target === introVid || e.target.classList.contains('intro-shade')) endIntro(); });
+  setTimeout(endIntro, 11500);
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.2 });

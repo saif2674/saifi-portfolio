@@ -3,214 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAIFI — The Film | Saif Ullah's Cinematic Portfolio</title>
-<meta name="description" content="Saif Ullah (Saifi) — a cinematic portfolio with real motion. AI creator, builder of PromptForge & WatchHub, future CSS officer.">
+<title>Saifi — Saif Ullah | A Living Portfolio</title>
+<meta name="description" content="The living portfolio of Saif Ullah (Saifi) — his AI character, animated by Google Flow. AI creator, store builder, future CSS officer.">
 <link rel="icon" href="avatar.webp">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
-  body { background:#0a0908; color:#f3ead8; font-family:'Inter',Arial,sans-serif; overflow-x:hidden; }
-  .anton { font-family:'Anton',Impact,sans-serif; font-weight:400; }
-  #progress { position:fixed; top:0; left:0; height:3px; width:0%; z-index:90;
-    background:linear-gradient(90deg,#e8b34b,#fff0cd); box-shadow:0 0 14px rgba(232,179,75,.8); }
+  body { background:#0b100f; color:#f5efe2; font-family:'Inter',Arial,sans-serif; overflow-x:hidden; }
+  .serif { font-family:'Playfair Display',Georgia,serif; }
+  #progress { position:fixed; top:0; left:0; height:3px; width:0%; z-index:90; background:linear-gradient(90deg,#c9a45c,#f5e3bb); }
   nav { position:fixed; top:0; left:0; right:0; z-index:80; display:flex; justify-content:space-between; align-items:center;
-    padding:18px 28px; background:linear-gradient(180deg, rgba(10,9,8,.88), transparent); }
-  .brand { font-family:'Anton',Impact,sans-serif; font-size:24px; letter-spacing:4px; color:#f3ead8; }
-  .brand b { color:#e8b34b; }
-  nav .links a { color:#e8dfc9; text-decoration:none; margin-left:22px; font-size:12px; letter-spacing:2.5px; font-weight:600; }
-  nav .links a:hover { color:#e8b34b; }
+    padding:18px 30px; background:linear-gradient(180deg, rgba(11,16,15,.9), transparent); }
+  .brand { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:25px; letter-spacing:1px; }
+  .brand i { color:#c9a45c; }
+  nav .links a { color:#e9e2cf; text-decoration:none; margin-left:24px; font-size:12px; letter-spacing:2.5px; font-weight:600; }
+  nav .links a:hover { color:#c9a45c; }
   @media (max-width:680px){ nav .links{ display:none; } }
 
-  /* ============ HERO — FULL SCREEN VIDEO ============ */
-  .hero { position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; }
-  .hero video.bgvid { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
-  .hero .shade { position:absolute; inset:0; z-index:1;
-    background:linear-gradient(90deg, rgba(10,9,8,.88) 0%, rgba(10,9,8,.45) 46%, transparent 75%),
-               linear-gradient(0deg, rgba(10,9,8,.92) 0%, transparent 34%); }
-  .hero .content { position:relative; z-index:2; padding:120px 6vw 90px; width:100%; }
-  .presents { letter-spacing:6px; font-size:12.5px; color:#e8b34b; font-weight:600; animation:fadeUp 1s ease .2s both; }
-  .hero h1 { font-family:'Anton',Impact,sans-serif; font-size:clamp(64px, 14vw, 168px); line-height:.92;
-    letter-spacing:2px; color:#f7efdc; margin:16px 0 4px; text-shadow:0 14px 50px rgba(0,0,0,.8); animation:fadeUp 1s ease .35s both; }
-  .hero h1 .out { color:transparent; -webkit-text-stroke:2.5px #e8b34b; }
-  .hero .tag { font-size:clamp(16px,2.6vw,24px); color:#e8dfc9; max-width:520px; line-height:1.55; animation:fadeUp 1s ease .55s both; }
-  .hero .row { margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp 1s ease .75s both; }
-  .btn { padding:15px 32px; border-radius:4px; text-decoration:none; font-size:14px; letter-spacing:2px; font-weight:800; text-transform:uppercase; }
-  .btn.amber { background:#e8b34b; color:#171106; box-shadow:0 14px 34px rgba(0,0,0,.55); }
-  .btn.line { border:1.5px solid rgba(243,234,216,.65); color:#f3ead8; background:rgba(0,0,0,.3); }
-  .sound-note { margin-top:18px; font-size:11.5px; letter-spacing:3px; color:rgba(243,234,216,.55); animation:fadeUp 1s ease .95s both; }
-  @keyframes fadeUp { from{ opacity:0; transform:translateY(28px);} to{ opacity:1; transform:translateY(0);} }
+  /* HERO */
+  .hero { position:relative; min-height:100vh; display:grid; grid-template-columns:1.05fr .95fr; gap:4vw; align-items:center;
+    padding:120px 6vw 80px; overflow:hidden;
+    background:radial-gradient(ellipse at 82% 18%, #14424e 0%, #0b100f 58%); }
+  @media (max-width:880px){ .hero{ grid-template-columns:1fr; padding-top:104px; } }
+  .eyebrow { letter-spacing:5px; font-size:12px; color:#c9a45c; font-weight:700; text-transform:uppercase; animation:fadeUp .9s ease .15s both; }
+  .hero h1 { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:clamp(56px, 9.5vw, 118px);
+    line-height:1.0; margin:18px 0 8px; animation:fadeUp .9s ease .3s both; }
+  .hero h1 i { color:#c9a45c; }
+  .hero .role { font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:clamp(20px,3vw,30px); color:#bfe6ee; animation:fadeUp .9s ease .45s both; }
+  .hero p.intro { margin-top:20px; color:#d8d0ba; line-height:1.7; font-size:clamp(15px,2vw,17.5px); max-width:520px; animation:fadeUp .9s ease .6s both; }
+  .row { margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; animation:fadeUp .9s ease .75s both; }
+  .btn { padding:15px 32px; border-radius:999px; text-decoration:none; font-size:13.5px; letter-spacing:2px; font-weight:700; text-transform:uppercase; }
+  .btn.gold { background:linear-gradient(135deg,#e6c877,#b98d54); color:#171106; box-shadow:0 14px 34px rgba(0,0,0,.5); }
+  .btn.line { border:1.5px solid rgba(245,239,226,.5); color:#f5efe2; }
+  .stats { margin-top:40px; display:flex; gap:32px; flex-wrap:wrap; animation:fadeUp .9s ease .9s both; }
+  .stat .num { font-family:'Playfair Display',Georgia,serif; font-size:32px; font-weight:800; }
+  .stat .num em { color:#c9a45c; font-style:normal; }
+  .stat .lab { color:#9a937f; font-size:11px; letter-spacing:2.5px; margin-top:3px; font-weight:600; }
+  @keyframes fadeUp { from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:translateY(0);} }
 
-  /* ============ CHAPTERS ============ */
-  .chapter { position:relative; padding:110px 6vw; overflow:hidden; }
-  .ch-head { display:flex; align-items:baseline; gap:20px; margin-bottom:14px; }
-  .ch-num { font-family:'Anton',Impact,sans-serif; font-size:clamp(40px,6vw,72px); color:transparent; -webkit-text-stroke:1.5px rgba(232,179,75,.75); }
-  .ch-kicker { letter-spacing:5px; font-size:12px; color:#e8b34b; font-weight:600; text-transform:uppercase; }
-  h2.mega { font-family:'Anton',Impact,sans-serif; font-size:clamp(42px,8.5vw,104px); line-height:.98; color:#f7efdc; letter-spacing:1px; }
-  h2.mega .amber { color:#e8b34b; }
-  .lead { margin-top:20px; color:#cfc4a8; font-size:clamp(15px,2vw,18px); line-height:1.7; max-width:600px; }
-  .reveal { opacity:0; transform:translateY(44px); transition:opacity .9s ease, transform .9s ease; }
+  .stage { position:relative; display:flex; flex-direction:column; align-items:center; z-index:2; }
+  .arch { position:relative; width:min(380px, 82vw); border-radius:999px 999px 18px 18px; overflow:hidden;
+    box-shadow:0 44px 100px rgba(0,0,0,.75); outline:1px solid rgba(201,164,92,.45); outline-offset:10px;
+    animation:floaty 6s ease-in-out infinite; }
+  @keyframes floaty { 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+  .arch video { width:100%; display:block; }
+  .arch .live { position:absolute; top:16px; left:50%; transform:translateX(-50%); z-index:2; display:flex; align-items:center; gap:7px;
+    background:rgba(0,0,0,.55); padding:6px 13px; border-radius:20px; font-size:10.5px; letter-spacing:2.5px; color:#ffd9d0; white-space:nowrap; }
+  .arch .live i { width:8px; height:8px; border-radius:50%; background:#ff4438; animation:blink 1.1s steps(1) infinite; }
+  @keyframes blink { 50%{ opacity:.15; } }
+  .stage .cap { margin-top:24px; color:#c9a45c; letter-spacing:3px; font-size:12px; font-weight:600; text-align:center; }
+
+  /* SECTIONS */
+  section { padding:100px 6vw; }
+  .kicker { letter-spacing:5px; font-size:12px; color:#c9a45c; font-weight:700; text-transform:uppercase; margin-bottom:14px; }
+  h2.big { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:clamp(38px,6.5vw,72px); line-height:1.05; }
+  h2.big i { color:#c9a45c; }
+  .lead { margin-top:18px; color:#cfc7ae; line-height:1.75; font-size:clamp(15px,2vw,17.5px); max-width:620px; }
+  .reveal { opacity:0; transform:translateY(40px); transition:opacity .9s ease, transform .9s ease; }
   .reveal.in { opacity:1; transform:translate(0,0); }
 
-  .split { display:grid; grid-template-columns:1.1fr .9fr; gap:5vw; align-items:center; }
+  /* LIGHT EDITORIAL SECTION */
+  .light { background:#f5efe2; color:#17201d; }
+  .light h2.big { color:#17201d; } .light h2.big i { color:#a07d2c; }
+  .light .lead { color:#4a4636; } .light .kicker { color:#a07d2c; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:5vw; align-items:start; }
   @media (max-width:840px){ .split{ grid-template-columns:1fr; } }
-  .cine-frame { position:relative; border-radius:10px; overflow:hidden; max-width:400px; margin:0 auto;
-    box-shadow:0 40px 90px rgba(0,0,0,.75), 0 0 0 1px rgba(232,179,75,.35); transform:rotate(1.2deg); }
-  .cine-frame video { width:100%; display:block; }
-  .cine-frame .live { position:absolute; top:12px; left:12px; z-index:2; display:flex; align-items:center; gap:7px;
-    background:rgba(0,0,0,.55); padding:6px 12px; border-radius:20px; font-size:11px; letter-spacing:2.5px; color:#ffd9d0; }
-  .cine-frame .live i { width:8px; height:8px; border-radius:50%; background:#ff4438; animation:blink 1.1s steps(1) infinite; }
-  @keyframes blink { 50%{ opacity:.15; } }
-  .factgrid { margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:560px; }
-  .fact { border:1px solid rgba(232,179,75,.28); border-left:4px solid #e8b34b; padding:14px 16px; background:rgba(255,255,255,.02); }
-  .fact b { display:block; color:#e8b34b; font-size:11px; letter-spacing:2.5px; margin-bottom:5px; }
-  .fact span { font-size:15px; color:#f0e7cf; }
+  .factlist { margin-top:8px; }
+  .factlist div { display:flex; justify-content:space-between; gap:18px; padding:16px 2px; border-bottom:1px solid rgba(23,32,29,.16); font-size:15.5px; }
+  .factlist span:first-child { color:#8a7a4d; letter-spacing:2px; font-size:12px; font-weight:700; padding-top:2px; }
+  .factlist span:last-child { font-weight:600; text-align:right; }
 
-  /* ============ FILM STRIP PROJECTS ============ */
-  .strip-zone { background:#060505; padding:100px 0 110px; overflow:hidden; }
-  .strip-head { padding:0 6vw; }
-  .strip { margin-top:44px; overflow-x:auto; scrollbar-width:none; cursor:grab; }
-  .strip::-webkit-scrollbar { display:none; }
-  .strip-inner { display:flex; gap:0; width:max-content; padding:26px 6vw; position:relative;
-    background:
-      repeating-linear-gradient(90deg, transparent 0 26px, rgba(243,234,216,.85) 26px 44px) top left / 100% 16px no-repeat,
-      repeating-linear-gradient(90deg, transparent 0 26px, rgba(243,234,216,.85) 26px 44px) bottom left / 100% 16px no-repeat,
-      #111; }
-  .frame { flex:0 0 auto; width:min(400px, 82vw); margin:0 10px; background:#1a1712; border:1px solid rgba(232,179,75,.3);
-    padding:28px 26px; display:flex; flex-direction:column; min-height:250px; }
-  .frame .fno { color:#e8b34b; font-size:12px; letter-spacing:3px; font-weight:600; }
-  .frame h3 { font-family:'Anton',Impact,sans-serif; font-size:32px; letter-spacing:1px; color:#f7efdc; margin:12px 0 10px; }
-  .frame p { color:#b3a888; font-size:14.5px; line-height:1.6; flex:1; }
-  .frame a { margin-top:18px; color:#e8b34b; text-decoration:none; font-weight:800; font-size:13px; letter-spacing:2px; }
-  .frame a:hover { color:#fff0cd; }
-  .strip-hint { padding:16px 6vw 0; color:#8b8471; font-size:12px; letter-spacing:3px; }
+  /* WORK LIST */
+  .work-row { display:flex; align-items:baseline; gap:22px; padding:28px 4px; border-bottom:1px solid rgba(245,239,226,.13);
+    text-decoration:none; transition:padding .3s ease, background .3s ease; }
+  .work-row:hover { padding-left:18px; background:linear-gradient(90deg, rgba(201,164,92,.08), transparent 65%); }
+  .work-row .no { font-family:'Playfair Display',Georgia,serif; font-style:italic; color:#c9a45c; font-size:19px; min-width:42px; }
+  .work-row .nm { font-family:'Playfair Display',Georgia,serif; font-weight:800; font-size:clamp(26px,4.5vw,44px); color:#f5efe2; }
+  .work-row .ds { color:#a89f88; font-size:14px; max-width:330px; line-height:1.55; margin-left:auto; text-align:right; }
+  .work-row .ar { color:#c9a45c; font-size:24px; }
+  @media (max-width:760px){ .work-row{ flex-wrap:wrap; } .work-row .ds{ margin-left:64px; text-align:left; } }
 
-  /* ============ NUMBERS ============ */
-  .nums { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:30px; margin-top:46px; }
-  .num-block .num { font-family:'Anton',Impact,sans-serif; font-size:clamp(54px,8vw,96px); color:#f7efdc; line-height:1; }
-  .num-block .num em { color:#e8b34b; font-style:normal; }
-  .num-block .lab { color:#9a8f74; letter-spacing:3px; font-size:12px; margin-top:10px; font-weight:600; }
-
-  /* ============ FINALE ============ */
-  .finale { text-align:center; padding:130px 6vw 110px; background:radial-gradient(ellipse at 50% -10%, #2a1f0d 0%, #0a0908 58%); }
+  /* FINALE */
+  .finale { text-align:center; background:radial-gradient(ellipse at 50% -10%, #173f49 0%, #0b100f 60%); }
   .finale .lead { margin-left:auto; margin-right:auto; }
-  .credit-lines { margin-top:52px; color:#9a8f74; line-height:2.3; letter-spacing:3px; font-size:13px; text-transform:uppercase; font-weight:600; }
+  .credit-lines { margin-top:48px; color:#9a937f; line-height:2.25; letter-spacing:3px; font-size:12.5px; text-transform:uppercase; font-weight:600; }
   .credit-lines b { color:#f0e7cf; }
-  footer { text-align:center; padding:24px 20px 46px; color:#6f6a5c; font-size:12px; letter-spacing:2.5px; }
+  footer { text-align:center; padding:24px 20px 44px; color:#6f6a5c; font-size:12px; letter-spacing:2px; }
 </style>
 </head>
 <body>
 <div id="progress"></div>
 
 <nav>
-  <div class="brand">SAIFI<b>.</b></div>
+  <div class="brand">Saifi<i>.</i></div>
   <div class="links">
-    <a href="#ch1">THE CREATOR</a><a href="#ch2">THE WORK</a><a href="#ch3">THE DREAM</a><a href="#finale">CONTACT</a>
+    <a href="#story">STORY</a><a href="#work">WORK</a><a href="#dream">DREAM</a><a href="#contact">CONTACT</a>
   </div>
 </nav>
 
-<!-- HERO — THE FILM IS PLAYING -->
 <header class="hero">
-  <video class="bgvid" autoplay muted loop playsinline poster="avatar.webp">
-    <source src="cine-hero.mp4" type="video/mp4">
-  </video>
-  <div class="shade"></div>
-  <div class="content">
-    <p class="presents">MINCHINABAD PICTURES PRESENTS</p>
-    <h1>SAIFI<br><span class="out">THE FILM</span></h1>
-    <p class="tag">The portfolio of <b>Saif Ullah</b> — an 18-year-old who shoots films without a camera,
-      builds stores without a shop, and is just getting started.</p>
+  <div>
+    <p class="eyebrow">✦ The Living Portfolio ✦</p>
+    <h1>Saif Ullah<br><i>“Saifi”</i></h1>
+    <p class="role">— and this is him, alive in AI.</p>
+    <p class="intro">The character beside you is not a photograph. He is Saifi's AI avatar, animated with
+      Google Flow — smiling, folding his arms, pointing right at you. Everything on this page was built
+      by the real Saifi: the films, the stores, the apps, and this site itself.</p>
     <div class="row">
-      <a class="btn amber" href="#ch1">▶ Watch The Story</a>
-      <a class="btn line" href="#finale">Contact</a>
+      <a class="btn gold" href="#work">See The Work ↓</a>
+      <a class="btn line" href="#contact">Contact</a>
     </div>
-    <p class="sound-note">▲ THE CHARACTER ABOVE IS ALIVE — A REAL CINEMATIC, PLAYING NOW</p>
+    <div class="stats">
+      <div class="stat"><div class="num"><span data-count="8.3">0</span><em>K+</em></div><div class="lab">PAGE FOLLOWERS</div></div>
+      <div class="stat"><div class="num"><span data-count="151">0</span><em>K</em></div><div class="lab">TOP REEL VIEWS</div></div>
+      <div class="stat"><div class="num"><span data-count="3">0</span></div><div class="lab">LIVE PRODUCTS</div></div>
+      <div class="stat"><div class="num"><span data-count="5">0</span><em>+</em></div><div class="lab">AI FILM PROJECTS</div></div>
+    </div>
+  </div>
+  <div class="stage">
+    <div class="arch">
+      <div class="live"><i></i> LIVE · AI CHARACTER</div>
+      <video autoplay muted loop playsinline poster="pose-folded.webp">
+        <source src="flow-portrait.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="cap">✦ ANIMATED WITH GOOGLE FLOW ✦</p>
   </div>
 </header>
 
-<!-- CHAPTER 1 — THE CREATOR -->
-<section class="chapter" id="ch1">
+<section class="light" id="story">
   <div class="split">
     <div class="reveal">
-      <div class="ch-head"><span class="ch-num">01</span><span class="ch-kicker">The Creator</span></div>
-      <h2 class="mega">FILMS WITHOUT<br>A <span class="amber">CAMERA</span></h2>
-      <p class="lead">Dragons over burning ruins. The last morning of Hiroshima. The last night of the Titanic.
-        Every frame generated with AI, edited by hand, finished like cinema. His channel
-        <b>Dusk of Empires</b> tells history's final hours — and <b>Skyward Dragon</b> carries his
-        dragon flights past 8,300 followers.</p>
-      <div class="factgrid">
-        <div class="fact"><b>FLAGSHIP FILM</b><span>THE LAST TIDE — dark fantasy</span></div>
-        <div class="fact"><b>CHANNEL</b><span>Dusk of Empires — history films</span></div>
-        <div class="fact"><b>TOP REEL</b><span>151K views — Skyward Dragon</span></div>
-        <div class="fact"><b>TOOLS</b><span>Flow · AI video · Editing</span></div>
-      </div>
+      <p class="kicker">✦ His Story ✦</p>
+      <h2 class="big">A student by day.<br>An operator by evening.<br><i>A builder by night.</i></h2>
+      <p class="lead">Saifi is an ADP student in his 3rd semester at Degree College Minchinabad, and a
+        part-time operator at Chicken Express in Lahore — running customer orders and helping support
+        his family. When the day ends, the second shift begins: AI films, prompt stores, watch stores,
+        apps and channels, all designed and shipped by him.</p>
     </div>
-    <div class="cine-frame reveal">
-      <div class="live"><i></i> NOW PLAYING</div>
-      <video autoplay muted loop playsinline poster="pose-laugh.webp">
-        <source src="cine-portrait.mp4" type="video/mp4">
-      </video>
+    <div class="factlist reveal">
+      <div><span>NAME</span><span>Saif Ullah — “Saifi”</span></div>
+      <div><span>AGE</span><span>18</span></div>
+      <div><span>FROM</span><span>Minchinabad · Lahore, Pakistan</span></div>
+      <div><span>STUDYING</span><span>ADP — 3rd Semester</span></div>
+      <div><span>WORKING</span><span>Operator, Chicken Express</span></div>
+      <div><span>BUILDING</span><span>Films · Stores · Apps</span></div>
+      <div><span>DREAMING</span><span>CSS — Civil Service of Pakistan</span></div>
     </div>
   </div>
 </section>
 
-<!-- CHAPTER 2 — THE WORK (FILM STRIP) -->
-<div class="strip-zone" id="ch2">
-  <div class="strip-head reveal">
-    <div class="ch-head"><span class="ch-num">02</span><span class="ch-kicker">The Work</span></div>
-    <h2 class="mega">EVERY FRAME<br>A <span class="amber">BUSINESS</span></h2>
-    <p class="lead">Drag the film strip — every frame is something real he built and runs.</p>
-  </div>
-  <div class="strip" id="strip"><div class="strip-inner">
-    <div class="frame"><span class="fno">FRAME 01</span><h3>PromptForge</h3><p>AI prompt-pack store — master prompts for viral reels, delivered only on verified payment.</p><a href="https://promptforge-c0abb.web.app" target="_blank" rel="noopener">VISIT STORE →</a></div>
-    <div class="frame"><span class="fno">FRAME 02</span><h3>WatchHub</h3><p>Premium watch store with real ordering — WhatsApp checkout and cash on delivery.</p><a href="https://watch-neon-zeta.vercel.app" target="_blank" rel="noopener">VISIT STORE →</a></div>
-    <div class="frame"><span class="fno">FRAME 03</span><h3>Storyboard Studio</h3><p>His approved Anna app — one-line ideas in, production-ready AI video prompts out.</p><a href="https://anna.partners/store/@saifi/storyboard-reel-studio" target="_blank" rel="noopener">OPEN APP →</a></div>
-    <div class="frame"><span class="fno">FRAME 04</span><h3>Dusk of Empires</h3><p>YouTube history channel — full AI films and Shorts about the final hours of empires.</p><a href="https://www.youtube.com/@DuskofEmpirestv" target="_blank" rel="noopener">WATCH →</a></div>
-    <div class="frame"><span class="fno">FRAME 05</span><h3>Skyward Dragon</h3><p>First-person dragon flight reels — 8.3K followers and climbing.</p><a href="https://www.facebook.com/profile.php?id=61593981347898" target="_blank" rel="noopener">VISIT PAGE →</a></div>
-    <div class="frame"><span class="fno">FRAME 06</span><h3>The AI Toolkit</h3><p>Faceless YouTube channel teaching AI tools to a global audience.</p><a href="https://www.youtube.com/channel/UCQfmSIxCNmdHWAJBbTVejEA" target="_blank" rel="noopener">WATCH →</a></div>
-  </div></div>
-  <p class="strip-hint">⟵ DRAG / SCROLL THE STRIP ⟶</p>
-</div>
-
-<!-- CHAPTER 3 — THE DREAM -->
-<section class="chapter" id="ch3">
+<section id="work">
   <div class="reveal">
-    <div class="ch-head"><span class="ch-num">03</span><span class="ch-kicker">The Student · The Dream</span></div>
-    <h2 class="mega">DAYS AT COLLEGE.<br>NIGHTS AT <span class="amber">WORK.</span></h2>
-    <p class="lead">ADP, 3rd semester, Degree College Minchinabad. Evenings running customer orders at
-      Chicken Express in Lahore — helping run his own home. Nights building everything on this page.
-      In November 2026 he applied for <b>ASI in the Airports Security Force</b> — the first uniform on
-      the road to the big one:</p>
+    <p class="kicker">✦ Selected Work ✦</p>
+    <h2 class="big">Built, launched,<br><i>and still running.</i></h2>
   </div>
-  <div class="nums">
-    <div class="num-block reveal"><div class="num"><span data-count="8.3">0</span><em>K+</em></div><div class="lab">PAGE FOLLOWERS</div></div>
-    <div class="num-block reveal" style="transition-delay:.1s"><div class="num"><span data-count="151">0</span><em>K</em></div><div class="lab">TOP REEL VIEWS</div></div>
-    <div class="num-block reveal" style="transition-delay:.2s"><div class="num"><span data-count="3">0</span></div><div class="lab">LIVE PRODUCTS</div></div>
-    <div class="num-block reveal" style="transition-delay:.3s"><div class="num">CSS</div><div class="lab">THE FINAL DESTINATION</div></div>
+  <div style="margin-top:26px;">
+    <a class="work-row reveal" href="https://promptforge-c0abb.web.app" target="_blank" rel="noopener"><span class="no">No. 1</span><span class="nm">PromptForge</span><span class="ds">AI prompt-pack store — master prompts for viral reels, delivered on verified payment.</span><span class="ar">→</span></a>
+    <a class="work-row reveal" href="https://watch-neon-zeta.vercel.app" target="_blank" rel="noopener"><span class="no">No. 2</span><span class="nm">WatchHub</span><span class="ds">Premium watch store — real orders, WhatsApp checkout, cash on delivery.</span><span class="ar">→</span></a>
+    <a class="work-row reveal" href="https://anna.partners/store/@saifi/storyboard-reel-studio" target="_blank" rel="noopener"><span class="no">No. 3</span><span class="nm">Storyboard Studio</span><span class="ds">His approved Anna app — one-line ideas in, production-ready video prompts out.</span><span class="ar">→</span></a>
+    <a class="work-row reveal" href="https://www.youtube.com/@DuskofEmpirestv" target="_blank" rel="noopener"><span class="no">No. 4</span><span class="nm">Dusk of Empires</span><span class="ds">YouTube history channel — the final hours of empires, in full AI films.</span><span class="ar">→</span></a>
+    <a class="work-row reveal" href="https://www.facebook.com/profile.php?id=61593981347898" target="_blank" rel="noopener"><span class="no">No. 5</span><span class="nm">Skyward Dragon</span><span class="ds">First-person dragon flight reels — 8.3K followers, top reel past 151K views.</span><span class="ar">→</span></a>
   </div>
 </section>
 
-<!-- FINALE -->
-<section class="finale" id="finale">
+<section id="dream" style="padding-top:20px;">
   <div class="reveal">
-    <p class="ch-kicker">Finale</p>
-    <h2 class="mega">YOUR SCENE<br><span class="amber">COULD BE NEXT</span></h2>
-    <p class="lead">A film, a store, an app — or just a salaam. The camera is rolling.</p>
-    <div style="margin-top:30px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a class="btn amber" href="mailto:saif267484989@gmail.com">Email Me →</a>
+    <p class="kicker">✦ The Dream ✦</p>
+    <h2 class="big">First the uniform.<br><i>Then the service.</i></h2>
+    <p class="lead">In November 2026, Saifi applied for Assistant Sub-Inspector (BPS-11) in the Airports
+      Security Force — and began preparing in earnest: the run, the chin-ups, the past papers. It is the
+      first step on a longer road he has already chosen — <b>CSS, the Civil Service of Pakistan</b> —
+      and every late-night build on this page is training for the discipline that road demands.</p>
+  </div>
+</section>
+
+<section class="finale" id="contact">
+  <div class="reveal">
+    <p class="kicker">✦ Contact ✦</p>
+    <h2 class="big">The next project<br><i>could be yours.</i></h2>
+    <p class="lead">A film, a store, an app — or just a salaam. His inbox is open.</p>
+    <div class="row" style="justify-content:center;">
+      <a class="btn gold" href="mailto:saif267484989@gmail.com">Email Me →</a>
       <a class="btn line" href="https://wa.me/923370596139?text=Assalam-o-Alaikum%20Saifi,%20I%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn line" href="https://github.com/saif2674" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="credit-lines">
       STARRING <b>SAIF ULLAH “SAIFI”</b><br>
-      CHARACTER <b>AI AVATAR — FROM HIS OWN PHOTO</b><br>
-      CINEMATOGRAPHY <b>GENERATED &amp; EDITED FOR THIS SITE</b><br>
+      CHARACTER <b>AI AVATAR — ANIMATED WITH GOOGLE FLOW</b><br>
       WRITTEN · BUILT · DIRECTED BY <b>SAIFI</b> · MMXXVI
     </div>
   </div>
 </section>
 
-<footer>© 2026 SAIF ULLAH “SAIFI” · NO REAL PHOTOS — ONLY HIS AI CHARACTER · TO BE CONTINUED…</footer>
+<footer>© 2026 SAIF ULLAH “SAIFI” · NO REAL PHOTOS — ONLY HIS AI CHARACTER, ALIVE ON THIS PAGE</footer>
 
 <script>
 (function () {
@@ -246,12 +233,6 @@
       bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
     });
   }, { passive: true });
-
-  /* drag the film strip */
-  var strip = document.getElementById('strip'), down = false, startX = 0, startL = 0;
-  strip.addEventListener('pointerdown', function (e) { down = true; startX = e.clientX; startL = strip.scrollLeft; strip.setPointerCapture(e.pointerId); });
-  strip.addEventListener('pointermove', function (e) { if (down) strip.scrollLeft = startL - (e.clientX - startX); });
-  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) { strip.addEventListener(ev, function () { down = false; }); });
 })();
 </script>
 </body>

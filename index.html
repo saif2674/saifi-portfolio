@@ -12,7 +12,7 @@
   :root{ --bg:#05231e; --bg2:#0a3530; --ink:#f4efe4; --mut:#b9c4bb; --gold:#c9a45c; --gold2:#f5e3bb; --card:rgba(6,32,28,.72); --line:rgba(201,164,92,.28); }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{background:radial-gradient(1200px 820px at 50% -10%, #146555 0%, var(--bg) 52%, #020f0a 100%);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden}
+  body{background:radial-gradient(1200px 800px at 50% -10%, #0e4a41 0%, var(--bg) 55%, #03150f 100%);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden}
   #gl{position:fixed;inset:0;z-index:0}
   #fallback{position:fixed;inset:0;z-index:0;display:none;align-items:center;justify-content:center}
   #fallback img{height:78vh;border-radius:18px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
@@ -21,7 +21,7 @@
   .hero-grid{display:flex;gap:28px;align-items:center}
   .hero-text{flex:1.15;min-width:0}
   .hero-vid{flex:.85;position:relative}
-  .hero-vid video{width:100%;height:min(64vh,560px);object-fit:cover;border-radius:24px;border:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 44px rgba(201,164,92,.16);display:block}
+  .hero-vid video{width:100%;height:min(64vh,560px);object-fit:cover;border-radius:24px;border:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.45);display:block}
   .hv-badge{position:absolute;top:14px;left:14px;background:rgba(4,25,21,.78);color:#ffb3a0;border:1px solid rgba(255,255,255,.25);padding:.35rem .8rem;border-radius:99px;font-size:.66rem;letter-spacing:.22em;font-weight:600}
   @media(max-width:760px){ .hero-grid{flex-direction:column} .hero-vid{width:100%} .hero-vid video{height:54vh} }
   /* ---------- LAYOUT ---------- */
@@ -239,9 +239,9 @@
     var camera = new THREE.PerspectiveCamera(46, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.set(0, 0.4, 10.5);
 
-    scene.add(new THREE.AmbientLight(0xd8efe6, 1.0));
-    var key = new THREE.DirectionalLight(0xfff2d8, 1.05); key.position.set(4, 6, 8); scene.add(key);
-    var rim = new THREE.DirectionalLight(0xe8bc66, 0.95); rim.position.set(-6, 3, -4); scene.add(rim);
+    scene.add(new THREE.AmbientLight(0xbfd9d2, 0.85));
+    var key = new THREE.DirectionalLight(0xfff2d8, 0.9); key.position.set(4, 6, 8); scene.add(key);
+    var rim = new THREE.DirectionalLight(0xc9a45c, 0.7); rim.position.set(-6, 3, -4); scene.add(rim);
 
     var stage = new THREE.Group(); scene.add(stage);
 

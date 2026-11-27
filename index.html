@@ -17,18 +17,13 @@
   #fallback{position:fixed;inset:0;z-index:0;display:none;align-items:center;justify-content:center}
   #fallback img{height:78vh;border-radius:18px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
   #progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:90;background:linear-gradient(90deg,var(--gold),var(--gold2))}
-  /* ---------- INTRO ---------- */
-  #intro{position:fixed;inset:0;z-index:200;background:#04211c;transition:opacity .9s ease,visibility .9s}
-  #intro.gone{opacity:0;visibility:hidden}
-  #intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .intro-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,33,28,.25),rgba(4,33,28,0) 40%,rgba(4,33,28,.6))}
-  .intro-ui{position:absolute;left:0;right:0;bottom:9%;text-align:center;color:#fff;pointer-events:none}
-  .intro-name{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(3rem,13vw,6.2rem);letter-spacing:.3em;text-indent:.3em;line-height:1;animation:introUp 1.2s .7s both}
-  .intro-sub{margin-top:.7rem;letter-spacing:.42em;text-indent:.42em;font-size:.68rem;color:var(--gold);animation:introUp 1.2s 1.25s both}
-  @keyframes introUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-  #introSkip{position:absolute;top:16px;right:16px;z-index:3;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;padding:.5rem 1.1rem;border-radius:99px;cursor:pointer;font-family:inherit;letter-spacing:.14em;font-size:.72rem}
-  .intro-bar{position:absolute;left:0;bottom:0;height:3px;background:var(--gold);width:0;animation:introBar 10.2s linear forwards}
-  @keyframes introBar{to{width:100%}}
+  /* ---------- HERO SIDE VIDEO ---------- */
+  .hero-grid{display:flex;gap:28px;align-items:center}
+  .hero-text{flex:1.15;min-width:0}
+  .hero-vid{flex:.85;position:relative}
+  .hero-vid video{width:100%;height:min(64vh,560px);object-fit:cover;border-radius:24px;border:1px solid var(--line);box-shadow:0 30px 60px rgba(0,0,0,.45);display:block}
+  .hv-badge{position:absolute;top:14px;left:14px;background:rgba(4,25,21,.78);color:#ffb3a0;border:1px solid rgba(255,255,255,.25);padding:.35rem .8rem;border-radius:99px;font-size:.66rem;letter-spacing:.22em;font-weight:600}
+  @media(max-width:760px){ .hero-grid{flex-direction:column} .hero-vid{width:100%} .hero-vid video{height:54vh} }
   /* ---------- LAYOUT ---------- */
   nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;justify-content:space-between;align-items:center;padding:16px 22px;mix-blend-mode:difference}
   .brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.35rem;letter-spacing:.06em;color:#fff}
@@ -79,13 +74,6 @@
 </style>
 </head>
 <body>
-<div id="intro">
-  <video id="introVid" src="flow-intro.mp4" autoplay muted playsinline preload="auto"></video>
-  <div class="intro-shade"></div>
-  <div class="intro-ui"><div class="intro-name">SAIF</div><div class="intro-sub">AI FILMMAKER · CREATOR · BUILDER</div></div>
-  <button id="introSkip" type="button">SKIP ✕</button>
-  <div class="intro-bar"></div>
-</div>
 <div id="progress"></div>
 <div id="gl"></div>
 <div id="fallback"><img src="avatar.webp" alt="Saifi AI character"></div>
@@ -99,7 +87,9 @@
 <main>
   <section id="hero">
     <div class="hero-wrap">
-      <div class="panel reveal in" style="max-width:820px">
+      <div class="panel reveal in" style="max-width:1120px">
+        <div class="hero-grid">
+        <div class="hero-text">
         <div class="kick">SCROLL — THE CHARACTER TURNS WITH YOU</div>
         <h1>Saif<span style="color:var(--gold)">i</span><span class="thin">AI FILMMAKER · CREATOR · BUILDER</span></h1>
         <p class="lead" style="margin-top:16px">I am Saif Ullah — 18, from Pakistan. I make AI films, run pages millions watch, and build stores and apps. The character you see turning beside you is my own AI avatar, brought to life with Google Flow.</p>
@@ -110,6 +100,12 @@
           <div class="stat"><div class="num"><span data-count="5">0</span><em>+</em></div><div class="lab">AI FILM PROJECTS</div></div>
         </div>
         <div class="scroll-hint">▼ SCROLL TO EXPLORE ▼</div>
+        </div>
+        <div class="hero-vid">
+          <video src="flow-portrait.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <div class="hv-badge">● LIVE · AI CHARACTER</div>
+        </div>
+        </div>
       </div>
     </div>
   </section>
@@ -173,15 +169,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function () {
-  /* ---------- INTRO ---------- */
-  var introEl = document.getElementById('intro'), introVid = document.getElementById('introVid');
-  document.body.style.overflow = 'hidden';
-  function endIntro() { if (!introEl || introEl.classList.contains('gone')) return; introEl.classList.add('gone'); document.body.style.overflow = ''; setTimeout(function () { introEl.remove(); }, 1000); }
-  if (introVid) { introVid.addEventListener('ended', endIntro); var pr = introVid.play(); if (pr && pr.catch) pr.catch(function () {}); }
-  document.getElementById('introSkip').addEventListener('click', endIntro);
-  introEl.addEventListener('click', function (e) { if (e.target === introVid || e.target.classList.contains('intro-shade')) endIntro(); });
-  setTimeout(endIntro, 11500);
-
   /* ---------- REVEALS + COUNTERS ---------- */
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.2 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
@@ -235,9 +222,24 @@
 
     /* character cards on a carousel */
     var files = ['avatar.webp', 'pose-wave.webp', 'pose-laugh.webp', 'pose-thumbs.webp', 'pose-folded.webp'];
-    var cards = [], loader = new THREE.TextureLoader();
+    function roundedTex(url) {
+      var c = document.createElement('canvas'); c.width = 512; c.height = 680;
+      var x = c.getContext('2d'), tex = new THREE.CanvasTexture(c), img = new Image();
+      img.onload = function () {
+        var r = 40;
+        x.beginPath();
+        x.moveTo(r, 0); x.arcTo(512, 0, 512, 680, r); x.arcTo(512, 680, 0, 680, r); x.arcTo(0, 680, 0, 0, r); x.arcTo(0, 0, 512, 0, r);
+        x.closePath(); x.clip();
+        x.drawImage(img, 0, 0, 512, 680);
+        x.lineWidth = 7; x.strokeStyle = 'rgba(201,164,92,0.9)'; x.stroke();
+        tex.needsUpdate = true;
+      };
+      img.src = url;
+      return tex;
+    }
+    var cards = [];
     files.forEach(function (f, i) {
-      var tex = loader.load(f);
+      var tex = roundedTex(f);
       var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide });
       var m = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 3.35), mat);
       var a = (i / files.length) * Math.PI * 2;
